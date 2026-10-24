@@ -1,0 +1,363 @@
+/* ========================================
+   Page-Specific Styles
+   ======================================== */
+
+/* ── Dashboard Page ── */
+.dashboard__stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: var(--spacing-lg);
+  margin-bottom: var(--spacing-xl);
+}
+
+.dashboard__quick-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-md);
+  margin-bottom: var(--spacing-2xl);
+}
+
+.dashboard__quick-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  padding: 12px 20px;
+  background: var(--bg-card);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  color: var(--text-primary);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  cursor: pointer;
+  transition: all var(--transition-normal);
+  text-decoration: none;
+}
+
+.dashboard__quick-btn:hover {
+  background: var(--bg-card-hover);
+  border-color: var(--border-light);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+.dashboard__quick-btn .icon-wrap {
+  width: 32px;
+  height: 32px;
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+}
+
+.dashboard__quick-btn--invoice .icon-wrap {
+  background: rgba(108, 92, 231, 0.15);
+  color: var(--primary-light);
+}
+
+.dashboard__quick-btn--expense .icon-wrap {
+  background: rgba(255, 107, 107, 0.15);
+  color: var(--danger-light);
+}
+
+.dashboard__quick-btn--investment .icon-wrap {
+  background: rgba(0, 206, 201, 0.15);
+  color: var(--accent-light);
+}
+
+.dashboard__section-title {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: var(--spacing-md);
+}
+
+.dashboard__section-title h2 {
+  font-size: var(--font-size-xl);
+  font-weight: var(--font-weight-semibold);
+  color: var(--text-primary);
+}
+
+/* ── Templates Page ── */
+.templates__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: var(--spacing-lg);
+}
+
+.template-card {
+  background: var(--bg-card);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-xl);
+  padding: var(--spacing-xl);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: all var(--transition-normal);
+  position: relative;
+  overflow: hidden;
+}
+
+.template-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: var(--primary-gradient);
+  opacity: 0;
+  transition: opacity var(--transition-fast);
+}
+
+.template-card:hover {
+  transform: translateY(-3px);
+  border-color: var(--border-light);
+  box-shadow: var(--shadow-glow-primary);
+}
+
+.template-card:hover::before {
+  opacity: 1;
+}
+
+.template-card__header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--spacing-md);
+  margin-bottom: var(--spacing-md);
+}
+
+.template-card__title {
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-semibold);
+  color: var(--text-primary);
+}
+
+.template-card__note {
+  font-size: var(--font-size-sm);
+  color: var(--text-secondary);
+  line-height: var(--line-height-relaxed);
+  margin-bottom: var(--spacing-lg);
+  flex-grow: 1;
+}
+
+.template-card__actions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: var(--spacing-md);
+  border-top: 1px solid var(--border);
+}
+
+.template-card__btn-group {
+  display: flex;
+  gap: var(--spacing-xs);
+}
+
+/* ── Invoices / Payments Page ── */
+.invoices__filter-bar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--spacing-md);
+  padding: var(--spacing-md) var(--spacing-lg);
+  background: var(--bg-card);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  margin-bottom: var(--spacing-xl);
+}
+
+.invoices__filter-group {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+}
+
+.invoices__filter-label {
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-medium);
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.payment-row {
+  display: grid;
+  grid-template-columns: 2fr 1.2fr 1.2fr 1fr auto;
+  align-items: center;
+  gap: var(--spacing-md);
+  padding: var(--spacing-md) var(--spacing-lg);
+  border-bottom: 1px solid var(--border);
+  transition: background var(--transition-fast);
+}
+
+.payment-row:last-child {
+  border-bottom: none;
+}
+
+.payment-row:hover {
+  background: var(--bg-card-hover);
+}
+
+.payment-row__name {
+  font-weight: var(--font-weight-medium);
+  color: var(--text-primary);
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.payment-row__subtext {
+  font-size: var(--font-size-xs);
+  color: var(--text-secondary);
+}
+
+.payment-row__amount {
+  font-family: var(--font-family-mono);
+  font-weight: var(--font-weight-semibold);
+  font-size: var(--font-size-md);
+  color: var(--text-primary);
+}
+
+.payment-row__postponed-info {
+  font-size: var(--font-size-xs);
+  color: var(--warning);
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.payment-row__actions {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+  justify-content: flex-end;
+}
+
+/* ── Expenses Page ── */
+.expenses__top-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--spacing-xl);
+  margin-bottom: var(--spacing-2xl);
+}
+
+.category-chart-card {
+  background: var(--bg-card);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-xl);
+  padding: var(--spacing-xl);
+}
+
+.category-chart-card__title {
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-semibold);
+  margin-bottom: var(--spacing-lg);
+  color: var(--text-primary);
+}
+
+.category-bar-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
+}
+
+.category-bar-item {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-2xs);
+}
+
+.category-bar-header {
+  display: flex;
+  justify-content: space-between;
+  font-size: var(--font-size-xs);
+}
+
+.category-bar-name {
+  color: var(--text-secondary);
+}
+
+.category-bar-val {
+  font-family: var(--font-family-mono);
+  font-weight: var(--font-weight-medium);
+  color: var(--text-primary);
+}
+
+.category-bar-track {
+  height: 8px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: var(--radius-full);
+  overflow: hidden;
+}
+
+.category-bar-fill {
+  height: 100%;
+  border-radius: var(--radius-full);
+  transition: width var(--transition-normal);
+}
+
+/* ── Settings Page ── */
+.settings__card {
+  background: var(--bg-card);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-xl);
+  padding: var(--spacing-xl);
+  margin-bottom: var(--spacing-xl);
+}
+
+.settings__card-title {
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-semibold);
+  margin-bottom: var(--spacing-sm);
+  color: var(--text-primary);
+}
+
+.settings__card-desc {
+  font-size: var(--font-size-sm);
+  color: var(--text-secondary);
+  margin-bottom: var(--spacing-lg);
+  line-height: var(--line-height-relaxed);
+}
+
+.settings__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-md);
+}
+
+.settings__danger-zone {
+  border-color: rgba(255, 107, 107, 0.25);
+  background: rgba(255, 107, 107, 0.03);
+}
+
+.settings__danger-zone .settings__card-title {
+  color: var(--danger);
+}
+
+/* ── Responsive adjustments for pages ── */
+@media (max-width: 900px) {
+  .expenses__top-grid {
+    grid-template-columns: 1fr;
+  }
+  .payment-row {
+    grid-template-columns: 1fr 1fr;
+    gap: var(--spacing-sm);
+  }
+  .payment-row__actions {
+    grid-column: span 2;
+    justify-content: flex-start;
+    margin-top: var(--spacing-xs);
+  }
+}
